@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hospital-servers/M/M.iml" filepath="$PROJECT_DIR$/hospital-servers/M/M.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-servers/demo/demo.iml" filepath="$PROJECT_DIR$/hospital-servers/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-servers/demo2/demo2.iml" filepath="$PROJECT_DIR$/hospital-servers/demo2/demo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital.iml" filepath="$PROJECT_DIR$/hospital.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-commons.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-config/hospital-config.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-config/hospital-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-logging/hospital-logging.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-logging/hospital-logging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-security/hospital-security.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-security/hospital-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-servers/hospital-server/hospital-server.iml" filepath="$PROJECT_DIR$/hospital-servers/hospital-server/hospital-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-servers/hospital-servers.iml" filepath="$PROJECT_DIR$/hospital-servers/hospital-servers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-utils/hospital-utils.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-utils/hospital-utils.iml" />
+    </modules>
+  </component>
+</project>

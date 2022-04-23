@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.test.hospitalserver.mapper.RolesMapper">
+
+    <select id="getRoles" resultType="roles">
+        select * from roles
+    </select>
+
+    
+
+    <resultMap id="roprMap" type="roPrProperties">
+        <result column="rname" property="rName"/>
+        <collection property="pName" ofType="permissions">
+            <result column="pnickname" property="pNickname"/>
+            <result column="pname" property="pName"/>
+        </collection>
+        <collection property="components" ofType="components">
+            <id column="cid" property="cId"/>
+            <result column="cpath" property="path"/>
+            <result column="cname" property="name"/>
+            <result column="ctitle" property="title"/>
+            <result column="cpid" property="pId"/>
+        </collection>
+    </resultMap>
+    <select id="getRoPrPropertiesbyAId" resultMap="roprMap">
+        select r_name as rname,p_name as pname,
+        c.c_id as cid,c.path as cpath,c.name as cname,c.title as ctitle,c.p_id as cpid
+        from roles r,roles_permissions r_p,
+        permissions p,components c
+        where r.r_id=r_p.r_id and r_p.p_id=p.p_id and p.c_id=c.c_id and r.r_id in (
+            select r_id
+            from admins
+            where a_id=${aId}
+        )
+    </select>
+    <!--    <resultMap id="components" type="">-->
+    <!--        <result column="cid" property="cId"/>-->
+    <!--        <result column="cpath" property="path"/>-->
+    <!--        <result column="cname" property="name"/>-->
+    <!--        <result column="ctitle" property="title"/>-->
+    <!--        <result column="cpid" property="pId"/>-->
+    <!--    </resultMap>-->
+
+    <!--    <association property="components" javaType="org.test.hospitalserver.entity.Components">-->
+    <!--        <id column="cid" property="cId"/>-->
+    <!--        <result column="cpath" property="path"/>-->
+    <!--        <result column="cname" property="name"/>-->
+    <!--        <result column="ctitle" property="title"/>-->
+    <!--        <result column="cpid" property="pId"/>-->
+    <!--    </association>-->
+
+</mapper>

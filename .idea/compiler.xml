@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hosptal-commons" />
+        <module name="hospital-utils" />
+        <module name="hospital-server" />
+        <module name="M" />
+        <module name="hospital-logging" />
+        <module name="hospital-security2" />
+        <module name="hospital-config" />
+        <module name="demo2" />
+        <module name="hospital-security" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.5" />
+      <module name="demo2" target="1.8" />
+      <module name="hospital" target="1.8" />
+      <module name="hospital-commons" target="1.8" />
+      <module name="hospital-config" target="1.8" />
+      <module name="hospital-config2" target="1.8" />
+      <module name="hospital-configa3" target="1.8" />
+      <module name="hospital-logging" target="1.8" />
+      <module name="hospital-security" target="1.8" />
+      <module name="hospital-security2" target="1.8" />
+      <module name="hospital-server" target="1.8" />
+      <module name="hospital-servers" target="1.8" />
+      <module name="hospital-utils" target="1.8" />
+      <module name="hosptal-commons" target="1.8" />
+      <module name="M" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="M" options="-parameters" />
+      <module name="demo2" options="-parameters" />
+      <module name="hospital-config" options="-parameters" />
+      <module name="hospital-logging" options="-parameters" />
+      <module name="hospital-security" options="-parameters" />
+      <module name="hospital-security2" options="-parameters" />
+      <module name="hospital-server" options="-parameters" />
+      <module name="hospital-utils" options="-parameters" />
+      <module name="hosptal-commons" options="-parameters" />
+    </option>
+  </component>
+</project>
