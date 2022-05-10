@@ -13,4 +13,4 @@ server:
 # \u5E94\u7528\u540D\u79F0
 mybatis:
   mapper-locations:  org.test.demo.mapper
-  type-aliases-package: org.test.demo.utils
+  type-aliases-package: org.test.demo.entity

@@ -35,7 +35,7 @@ public class SwaggerConfig {
                  *       withClassAnnotation:扫描类上的注解(参数是类上注解的class对象)
                  *       withMethodAnnotation:扫描方法上的注解(参数是方法上的注解的class对象)
                  */
-                .apis(RequestHandlerSelectors.basePackage("com.Controller"))
+                .apis(RequestHandlerSelectors.basePackage("org.test"))
                 /**
                  * paths():过滤路径
                  *  PathSelectors:配置过滤的路径

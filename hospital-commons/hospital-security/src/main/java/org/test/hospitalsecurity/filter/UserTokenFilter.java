@@ -48,8 +48,9 @@ public class UserTokenFilter extends BasicAuthenticationFilter {
             chain.doFilter(request, response);
             return;
         }
-        log.info("UserTokenFilter ==========");
+        log.info("UserTokenFilter ========== request.getRequestURI() == {}  ",request.getRequestURI());
         String token = request.getHeader("token");
+        log.info("token==>{}",token);
         UsernamePasswordAuthenticationToken authenticationToken = getAuthenticationToken(token);
         if(authenticationToken==null){
             throw new LoginException("请先通过登录");

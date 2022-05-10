@@ -8,11 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.test.hospitalconfig.exception.LoginException;
 import org.test.hospitalsecurity.entity.LoginUser;
+import org.test.hospitalserver.client.HospitalDataProviderClient;
 import org.test.hospitalserver.entity.Admins;
 import org.test.hospitalserver.mapper.AdminsMapper;
 import org.test.hospitalserver.mapper.RolesMapper;
@@ -20,10 +19,14 @@ import org.test.hospitalserver.service.AdminsService;
 import org.test.hospitalserver.service.impl.TestService;
 import org.test.hospitalutils.utils.R;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @Slf4j
 @Api(tags="controller")
+@RequestMapping("/test")
+@CrossOrigin
 public class TestController {
     
     @Autowired
@@ -43,12 +46,17 @@ public class TestController {
         testService.method();
         return R.ok();
     }
-    @PostMapping("/test2")
+    
+    @Autowired
+    HospitalDataProviderClient hospitalDataProviderClient;
+    
+    @GetMapping("/test2")
     @ApiOperation("test")
-    public ResponseEntity test2(){
-
-
-        throw new LoginException("登录失败");
+    public R test2(HttpServletRequest request){
+        
+        log.info("TEST2 {}",request.getHeader("token"));
+        System.out.println(hospitalDataProviderClient.getDoctorsList());
+        return hospitalDataProviderClient.getDoctorsList();
     }
     
 }

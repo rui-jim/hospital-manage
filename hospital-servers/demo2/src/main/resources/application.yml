@@ -26,4 +26,4 @@ jwt:
 #  mapper-locations: classpath:com/test/serverslogin/mapper/xml/*.xml
 mybatis-plus:
   mapper-locations: classpath:com/test/serverslogin/mapper/xml/*.xml
-#  type-aliases-package: org/test/hospitalserver/utils
+#  type-aliases-package: org/test/org.test.org.test.hospitaldataprovider/entity

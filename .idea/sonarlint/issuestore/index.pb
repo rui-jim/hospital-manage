@@ -1,6 +1,4 @@
 
-ë
-ahospital-servers/hospital-server/src/main/java/org/test/hospitalserver/service/AdminsService.java,1\e\1e8ed497b23788c984e328e458ca9c56f0e5255a
 ï
 ehospital-servers/hospital-server/src/main/java/org/test/hospitalserver/service/ComponentsService.java,f\a\fa9c8592ed0f7ea1867900fbc09b4a8e46734338
 î
@@ -9,8 +7,6 @@ dhospital-commons/hospital-config/src/main/java/org/test/hospitalconfig/exceptio
 nhospital-servers/hospital-server/src/main/java/org/test/hospitalserver/service/impl/UserLoginsServiceImpl.java,7\2\72fe63e16457e08c23f888b47c7600cf85e5fa59
 §
 thospital-commons/hospital-config/src/main/java/org/test/hospitalconfig/exception/handler/GlobalExceptionHandler.java,4\1\4193e0c09d42795c1dd063da34f443bc0f45cc93
-é
-^hospital-commons/hospital-config/src/main/java/org/test/hospitalconfig/conf/SwaggerConfig.java,b\7\b768a4ead088828553d58c5561aceabdd542998c
 õ
 khospital-servers/hospital-server/src/main/java/org/test/hospitalserver/controller/UserLoginsController.java,b\9\b9dc98cf859f82707ccdf02afd6208f92cd7af6c
 °
@@ -35,10 +31,6 @@ t
 Dhospital-servers/demo/src/main/java/org/test/demo/entity/Admins.java,e\8\e88ebea9236d1fef0c333373e59e8fd2b2bceb08
 z
 Jhospital-servers/demo/src/main/java/org/test/demo/controller/TestCont.java,e\9\e9b5f63d342045c2a2f51368f8bd98162186ad02
-è
-_hospital-servers/hospital-server/src/main/java/org/test/hospitalserver/mapper/AdminsMapper.java,6\5\65f19842e0f1dd806674d2b7a0b0b9f123c44867
-í
-bhospital-servers/hospital-server/src/main/java/org/test/hospitalserver/mapper/xml/AdminsMapper.xml,f\b\fb44d2ac75dda469fd0727b278a20899940ab82d
 Å
 Qhospital-commons/hospital-utils/src/main/java/org/test/hospitalutils/utils/R.java,2\1\21a56679cc2d4a76b79eb59b76073c0de3dde6b5
 É
@@ -53,13 +45,7 @@ Y
 )hospital-commons/hospital-logging/pom.xml,0\3\03ef19ea4404622491a0a23923bf3b380b6f49e5
 X
 (hospital-commons/hospital-config/pom.xml,e\3\e30ba5b37929f367dc48ef2a8e1095861b11f4bb
-ö
-jhospital-servers/hospital-server/src/main/java/org/test/hospitalserver/service/impl/AdminsServiceImpl.java,c\7\c74463634cd5257546d279aec7c4fbda7eba7a24
 ç
 ]hospital-servers/hospital-server/src/main/java/org/test/hospitalserver/entity/Components.java,a\4\a4c19199d65c60be8298ed0fd85a6aeb53b896be
 å
 \hospital-commons/hospital-config/src/main/java/org/test/hospitalconfig/conf/RedisConfig.java,5\e\5e64cab29321bcfed4bec78ad7c31817e62c3bc4
-é
-^hospital-servers/hospital-server/src/main/java/org/test/hospitalserver/mapper/RolesMapper.java,d\7\d713c05efde5d76da4b0f4ac7a5ed890109694f7
-ë
-ahospital-servers/hospital-server/src/main/java/org/test/hospitalserver/mapper/xml/RolesMapper.xml,f\2\f2b81ad4dc487eec3b87101b0e4479dc81cf8877

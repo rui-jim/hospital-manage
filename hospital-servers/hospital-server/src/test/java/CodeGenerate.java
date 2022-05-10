@@ -59,8 +59,8 @@ public class CodeGenerate {
         // 4、包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(null); //模块名
-        pc.setParent("org.test.hospitalserver");
-        pc.setEntity("utils");
+        pc.setParent("org.test.hospitaldataprovider");
+        pc.setEntity("entity");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setMapper("mapper");

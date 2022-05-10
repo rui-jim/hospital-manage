@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/hospital.iml" filepath="$PROJECT_DIR$/hospital.iml" />
       <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-commons.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-config/hospital-config.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-config/hospital-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-servers/hospital-data-provider/hospital-data-provider.iml" filepath="$PROJECT_DIR$/hospital-servers/hospital-data-provider/hospital-data-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-logging/hospital-logging.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-logging/hospital-logging.iml" />
       <module fileurl="file://$PROJECT_DIR$/hospital-commons/hospital-security/hospital-security.iml" filepath="$PROJECT_DIR$/hospital-commons/hospital-security/hospital-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/hospital-servers/hospital-server/hospital-server.iml" filepath="$PROJECT_DIR$/hospital-servers/hospital-server/hospital-server.iml" />

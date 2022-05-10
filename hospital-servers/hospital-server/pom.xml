@@ -12,7 +12,11 @@
     <artifactId>hospital-server</artifactId>
 
     <dependencies>
-       
+        <dependency>
+            <artifactId>hospital-security</artifactId>
+            <groupId>org.test</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

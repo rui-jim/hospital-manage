@@ -58,7 +58,7 @@ public class CodeGenerator {
         pc.setModuleName("serverslogin");
         pc.setParent("com.test");
         pc.setController("controller");
-        pc.setEntity("utils");
+        pc.setEntity("entity");
         pc.setService("service");
         pc.setMapper("mapper");
         mpg.setPackageInfo(pc);

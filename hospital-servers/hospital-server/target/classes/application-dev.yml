@@ -1,3 +1,6 @@
 jwt:
   SECRET: kdjaskldjaoiur98w7e90123opl;;,/l[z]aepq[oo-0123pokkaf[sdg\s-000\\fsdfkp
   EXPIRE: 259200000
+
+servers:
+  dataprovider: http://hospital-data-provider
