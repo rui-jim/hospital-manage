@@ -2,6 +2,9 @@ package org.test.hospitalserver.mapper;
 
 import org.test.hospitalserver.entity.Patients;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.test.hospitalserver.entity.vo.PatientsVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface PatientsMapper extends BaseMapper<Patients> {
 
+    List<PatientsVo> getPatientInfo();
+    
 }

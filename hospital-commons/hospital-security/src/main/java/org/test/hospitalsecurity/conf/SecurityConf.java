@@ -15,10 +15,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.test.hospitalsecurity.filter.UserLoginFilter;
 import org.test.hospitalsecurity.filter.UserTokenFilter;
 import org.test.hospitalsecurity.utils.TokenManage;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.time.Duration;
+import java.util.Collections;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -36,7 +42,11 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
 //                
 //                .antMatchers("/test2").permitAll()
 //                .anyRequest().permitAll();
-        http.csrf().disable();
+        http.cors()
+                .configurationSource(corsConfigurationSource())
+                .and()
+                .csrf()
+                .disable();
 
         http.authorizeRequests()
                 .antMatchers("/swagger-ui/**").permitAll()
@@ -54,7 +64,29 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 .addFilter(new UserTokenFilter(authenticationManager(),redisTemplate,tokenManage));
 //                .addFilterBefore(new UserTokenFilter(authenticationManager(),redisTemplate,tokenManage), UsernamePasswordAuthenticationFilter.class);
     }
+    
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
 
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        CorsConfiguration configuration = new CorsConfiguration();
+
+        configuration.setAllowCredentials(true);
+
+        configuration.setAllowedOrigins(Collections.singletonList("*"));
+
+        configuration.setAllowedMethods(Collections.singletonList("*"));
+
+        configuration.setAllowedHeaders(Collections.singletonList("*"));
+
+        configuration.setMaxAge(Duration.ofHours(1));
+
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
+
+    }
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().mvcMatchers("/api/**",
@@ -62,6 +94,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 "/swagger-ui/**",
                 "/swagger-ui/index.html",
                 "/test/**"
+//                "/doctors/**"
         );
     }
 

@@ -3,7 +3,9 @@ package org.test.hospitalutils.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 
@@ -16,6 +18,7 @@ import java.io.Serializable;
  * @since 2022-04-16
  */
 @Data
+@Alias("permissions")
 public class Permissions implements Serializable {
 
     private static final long serialVersionUID=1L;
@@ -37,6 +40,7 @@ public class Permissions implements Serializable {
     /**
      * 组件ID
      */
+    private String component;
     @TableField("c_id")
     private Integer cId;
     

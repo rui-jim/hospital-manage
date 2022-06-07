@@ -4,9 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,7 +19,6 @@ import org.test.hospitalserver.service.UserRolesService;
 import org.test.hospitalutils.entity.Permissions;
 import org.test.hospitalutils.entity.RoPrProperties;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -80,3 +76,8 @@ public class MyUserDetailService implements UserDetailsService {
     }
     
 }
+//    RoPrProperties(rName=管理员, pName=
+//            [
+//                    Permissions(pId=null, pNickname=null, pName=selectTest2, cId=null), 
+//                    Permissions(pId=null, pNickname=null, pName=selectTest, cId=null)],
+//        components=[Components{cId=11, path=/test2, name=test2, title=测试2, pId=null, hidden=null}, Components{cId=10, path=/test, name=test, title=测试, pId=null, hidden=null}])

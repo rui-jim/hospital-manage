@@ -2,4 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.test.hospitalserver.mapper.DoctorsMapper">
 
+    <resultMap id="getDoctorsVo" type="doctorsVo">
+        <result property="dId" column="d_id"/>
+        <result property="dName" column="d_name"/>
+        <result property="dAge" column="d_age"/>
+        <result property="dAvatar" column="d_avatar"/>
+        <result property="dIdentified" column="d_identified"/>
+        <result property="dDegree" column="d_degree"/>
+        <result property="scGraduation" column="sc_graduation"/>
+        <result property="dAddress" column="d_address"/>
+        <result property="dEntryTime" column="d_entry_time"/>
+        <result property="dResignTime" column="d_resign_time"/>
+        <result property="dOutRegister" column="d_out_register"/>
+        <result property="modTime" column="mod_time"/>
+        <result property="rName" column="r_name"/>
+        <association property="depts" javaType="Depts">
+            <result property="name" column="dpt_name"/>
+            <result property="address" column="dpt_address"/>
+        </association>
+    </resultMap>
+    <select id="getDoctorsVo" resultMap="getDoctorsVo">
+
+select d.id as d_id,d.name as d_name,d.age as d_age,d.avatar as d_avatar,    
+     d.identified as d_identified,d.address as d_address,d.sc_graduation as sc_graduation,
+     d.degree as d_degree,d.entry_time as d_entry_time,d.resign_time as d_resign_time,      
+		 d.out_register as d_out_register,d.mod_time as mod_time,r.r_name as r_name,
+			dpt.name as dpt_name,dpt.address as dpt_address
+from doctors d,roles r,depts dpt
+where d.r_id = r.r_id and dpt.id=d.dept_id
+    </select>
+    
 </mapper>

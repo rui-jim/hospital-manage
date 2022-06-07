@@ -1,7 +1,7 @@
 package org.test.hospitalserver.service;
 
-import org.test.hospitalserver.entity.Components;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.test.hospitalutils.entity.Components;
 
 /**
  * <p>

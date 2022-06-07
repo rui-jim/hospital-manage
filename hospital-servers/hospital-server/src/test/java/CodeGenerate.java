@@ -59,7 +59,7 @@ public class CodeGenerate {
         // 4、包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(null); //模块名
-        pc.setParent("org.test.hospitaldataprovider");
+        pc.setParent("org.test.hospitalserver");
         pc.setEntity("entity");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
@@ -70,7 +70,7 @@ public class CodeGenerate {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("user_roles");//对那一张表生成代码
+        strategy.setInclude("depts");//对那一张表生成代码
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
         strategy.entityTableFieldAnnotationEnable(true);//实体属性上添加表字段映射

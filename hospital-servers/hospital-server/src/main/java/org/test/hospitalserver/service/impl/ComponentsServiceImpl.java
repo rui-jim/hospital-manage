@@ -1,10 +1,10 @@
 package org.test.hospitalserver.service.impl;
 
-import org.test.hospitalserver.entity.Components;
 import org.test.hospitalserver.mapper.ComponentsMapper;
 import org.test.hospitalserver.service.ComponentsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.test.hospitalutils.entity.Components;
 
 /**
  * <p>

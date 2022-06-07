@@ -2,6 +2,9 @@ package org.test.hospitalserver.service;
 
 import org.test.hospitalserver.entity.Patients;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.test.hospitalserver.entity.vo.PatientsVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PatientsService extends IService<Patients> {
 
+    List<PatientsVo> getPatientInfo();
 }

@@ -1,16 +1,8 @@
 package org.test.hospitalserver.mapper;
 
-import org.test.hospitalserver.entity.UserLogins;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.test.hospitalserver.entity.RolesPermissions;
+import org.test.hospitalserver.entity.UserLogins;
 
-/**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author my
- * @since 2022-04-16
- */
 public interface UserLoginsMapper extends BaseMapper<UserLogins> {
-
 }

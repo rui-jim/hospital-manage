@@ -7,16 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hospital-security" />
+        <module name="hosptal-commons" />
+        <module name="hospital-doctors" />
         <module name="hospital-utils" />
         <module name="hospital-server" />
-        <module name="hospital-data-provider" />
-        <module name="hospital-logging" />
         <module name="M" />
-        <module name="hospital-security2" />
-        <module name="hosptal-commons" />
-        <module name="demo2" />
+        <module name="hospital-logging" />
+        <module name="hospital-server2" />
         <module name="hospital-config" />
+        <module name="hospital-security2" />
+        <module name="hospital-security" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,10 +28,12 @@
       <module name="hospital-config2" target="1.8" />
       <module name="hospital-configa3" target="1.8" />
       <module name="hospital-data-provider" target="1.8" />
+      <module name="hospital-doctors" target="1.8" />
       <module name="hospital-logging" target="1.8" />
       <module name="hospital-security" target="1.8" />
       <module name="hospital-security2" target="1.8" />
       <module name="hospital-server" target="1.8" />
+      <module name="hospital-server2" target="1.8" />
       <module name="hospital-servers" target="1.8" />
       <module name="hospital-utils" target="1.8" />
       <module name="hosptal-commons" target="1.8" />
@@ -44,10 +46,12 @@
       <module name="demo2" options="-parameters" />
       <module name="hospital-config" options="-parameters" />
       <module name="hospital-data-provider" options="-parameters" />
+      <module name="hospital-doctors" options="-parameters" />
       <module name="hospital-logging" options="-parameters" />
       <module name="hospital-security" options="-parameters" />
       <module name="hospital-security2" options="-parameters" />
       <module name="hospital-server" options="-parameters" />
+      <module name="hospital-server2" options="-parameters" />
       <module name="hospital-utils" options="-parameters" />
       <module name="hosptal-commons" options="-parameters" />
     </option>

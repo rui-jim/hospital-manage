@@ -6,7 +6,7 @@
         <result property="aId" column="a_id"/>
         <result property="name" column="name"/>
         <result property="age" column="age"/>
-        <collection property="roles" ofType="org.test.hospitalserver.entity.Roles">
+        <collection property="roles" ofType="roles">
             <id property="rId" column="r_id"/>
             <result property="rName" column="r_name"/>
         </collection>

@@ -7,7 +7,6 @@
         <option value="$PROJECT_DIR$/hospital-servers/pom.xml" />
         <option value="$PROJECT_DIR$/hospital-commons/pom.xml" />
         <option value="$PROJECT_DIR$/hospital-commons/hospital-config/pom.xml" />
-        <option value="$PROJECT_DIR$/hospital-servers/demo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -15,6 +14,8 @@
         <option value="$PROJECT_DIR$/hospital-commons/hospital-config2/pom.xml" />
         <option value="$PROJECT_DIR$/hospital-commons/hospital-configa3/pom.xml" />
         <option value="$PROJECT_DIR$/hospital-commons/hospital-security2/pom.xml" />
+        <option value="$PROJECT_DIR$/hospital-servers/demo2/pom.xml" />
+        <option value="$PROJECT_DIR$/hospital-servers/hospital-data-provider/pom.xml" />
         <option value="$PROJECT_DIR$/hosptal-commons/pom.xml" />
       </set>
     </option>

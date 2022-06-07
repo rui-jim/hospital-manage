@@ -2,6 +2,10 @@ package org.test.hospitalserver.service;
 
 import org.test.hospitalserver.entity.Doctors;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.test.hospitalserver.entity.vo.DoctorsVo;
+import org.test.hospitalserver.entity.vo.RolesVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface DoctorsService extends IService<Doctors> {
 
+    List<DoctorsVo> getList();
+
+    Boolean addDoctors(DoctorsVo doctorsVo);
+    
 }

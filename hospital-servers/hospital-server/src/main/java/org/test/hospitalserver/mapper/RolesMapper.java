@@ -3,6 +3,7 @@ package org.test.hospitalserver.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.test.hospitalserver.entity.vo.RolesVo;
 import org.test.hospitalutils.entity.RoPrProperties;
 import org.test.hospitalserver.entity.Roles;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -26,4 +27,7 @@ public interface RolesMapper extends BaseMapper<Roles> {
     
     RoPrProperties getRoPrPropertiesbyAId(@Param("aId") Integer aId);
     
+    List<RolesVo> getRolesVoList();
+
+    List<RolesVo> getRolesVoNoPerList();
 }

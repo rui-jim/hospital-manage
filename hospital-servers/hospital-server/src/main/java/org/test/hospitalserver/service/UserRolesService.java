@@ -1,16 +1,10 @@
 package org.test.hospitalserver.service;
 
-import org.test.hospitalserver.entity.UserRoles;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.stereotype.Service;
+import org.test.hospitalserver.entity.UserRoles;
 
-/**
- * <p>
- *  服务类
- * </p>
- *
- * @author my
- * @since 2022-04-19
- */
+
+@Service
 public interface UserRolesService extends IService<UserRoles> {
-
 }

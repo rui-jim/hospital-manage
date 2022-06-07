@@ -2,6 +2,7 @@ package org.test.hospitalserver.service;
 
 import org.test.hospitalserver.entity.RolesPermissions;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.test.hospitalserver.entity.vo.RolesVo;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface RolesPermissionsService extends IService<RolesPermissions> {
 
+    Boolean updatePerOfRole(RolesVo rolesVo);
+    
+    
 }

@@ -2,4 +2,57 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.test.hospitalserver.mapper.PatientsMapper">
 
+    <resultMap id="patientInfo" type="patientsVo" >
+        <result property="pId" column="p_id"/>
+        <result property="pAge" column="p_age"/>
+        <result property="pName" column="p_name"/>
+        <result property="pAvatar" column="p_avatar"/>
+        <result property="pIdentified" column="p_identified"/>
+        <result property="pAddress" column="p_address"/>
+        <result property="pCId" column="p_c_id"/>
+        <result property="pEntryTime" column="p_entry_time"/>
+        <result property="pResignTime" column="p_resign_time"/>
+        <result property="modTime" column="mod_time"/>
+        
+        <association property="rolesVo" javaType="RolesVo">
+            <result property="rName" column="r_name"/>
+        </association>
+        <collection property="doctorsName" javaType="list" ofType="string">
+            <constructor>
+                <arg column="d_name"/>
+            </constructor>
+        </collection>
+        <collection property="patientCases" javaType="list" ofType="PatientCase">
+            <result property="pCName" column="p_c_name"/>
+        </collection>
+<!--        <collection property="medicines" javaType="list" ofType="Medicines">-->
+<!--            <result property="mName" column="m_name"/>-->
+<!--            <result property="mPrice" column="mPrice"/>-->
+<!--            <result property="mIntroduce" column="mIntroduce"/>-->
+<!--            <result property="mName" column="m_name"/>-->
+<!--            <result property="mName" column="m_name"/>-->
+<!--            <result property="mName" column="m_name"/>-->
+<!--            <result property="mName" column="m_name"/>-->
+<!--        </collection>-->
+    </resultMap>
+    
+    <select id="getPatientInfo" resultMap="patientInfo">
+
+        select p.p_id as p_id,p.p_name as p_name,p.p_age as p_age,p.p_avatar as p_avatar,p.p_identified as p_identified,p.p_address as p_address,
+                    p.p_entry_time as p_entry_time,p.p_resign_time as p_resign_time,p.mod_time as mod_time,
+                    r.r_name as r_name,
+                    d.d_name as d_name,
+                    p_c.p_c_name as p_c_name
+        from patients p,
+            patient_case p_c,
+            doctors d,
+            roles r
+        where 
+            p.p_c_id = p_c.p_c_id and 
+            p.p_d_id = d.d_id and 
+            r.r_id = p.r_id
+
+
+    </select>
+    
 </mapper>

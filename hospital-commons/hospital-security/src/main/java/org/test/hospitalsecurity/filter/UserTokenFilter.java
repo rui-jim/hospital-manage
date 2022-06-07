@@ -1,5 +1,6 @@
 package org.test.hospitalsecurity.filter;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -17,6 +19,8 @@ import org.test.hospitalconfig.exception.LoginException;
 import org.test.hospitalsecurity.entity.CurrentUser;
 import org.test.hospitalsecurity.entity.LoginUser;
 import org.test.hospitalsecurity.utils.TokenManage;
+import org.test.hospitalutils.utils.R;
+import org.test.hospitalutils.utils.ResponseUtil;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 
 import javax.servlet.FilterChain;
@@ -53,7 +57,8 @@ public class UserTokenFilter extends BasicAuthenticationFilter {
         log.info("token==>{}",token);
         UsernamePasswordAuthenticationToken authenticationToken = getAuthenticationToken(token);
         if(authenticationToken==null){
-            throw new LoginException("请先通过登录");
+            log.info("请先通过登录");
+            return;
         }
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         chain.doFilter(request,response);
@@ -63,10 +68,17 @@ public class UserTokenFilter extends BasicAuthenticationFilter {
         if(StringUtils.isEmpty(token) ||  "".equals(token)){
            return null; 
         }
-        String name = tokenManage.getMemberIdByJwtToken(token);
-        log.info("Token resolve to name = {}",name);
-        Object o = redisTemplate.opsForValue().get(name);
-        log.info("redis================>   {} ",o);
+        Object o = null;
+        String name = null;
+        try {
+            name = tokenManage.getMemberIdByJwtToken(token);
+            log.info("Token resolve to name = {}", name);
+            o = redisTemplate.opsForValue().get(name);
+            log.info("redis================>   {} ", o);
+        }catch (Exception e){
+            log.info("Exception {}",e.getMessage());
+            return null;
+        }
         List<String> permissions = (List<String>) o;
         log.info("Token resolve to permissions {}",permissions);
         Collection<GrantedAuthority> authorities = new ArrayList<>();

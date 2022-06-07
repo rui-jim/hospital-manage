@@ -29,7 +29,7 @@
         permissions p,components c
         where r.r_id=r_p.r_id and r_p.p_id=p.p_id and p.c_id=c.c_id and r.r_id in (
             select r_id
-            from admins
+            from user_roles
             where a_id=${aId}
         )
     </select>
@@ -49,4 +49,24 @@
     <!--        <result column="cpid" property="pId"/>-->
     <!--    </association>-->
 
+
+    <resultMap id="getRolesVo" type="rolesVo">
+        <result property="rId" column="r_id"/>
+        <result property="rName" column="r_name"/>
+        <collection property="permissionsList"  javaType="list" ofType="permissionsVo">
+            <result property="pId" column="p_id"/>
+            <result property="pNickname" column="p_nickname"/>
+        </collection>
+    </resultMap>
+
+    <select id="getRolesVoList" resultMap="getRolesVo">
+        select r.r_id as r_id,r.r_name as r_name,p.p_nickname as p_nickname,p.p_id as p_id
+        from roles r,roles_permissions r_p,permissions p
+        where r.r_id=r_p.r_id and r_p.p_id=p.p_id
+    </select>
+    
+    <select id="getRolesVoNoPerList" resultMap="getRolesVo">
+        select * 
+        from roles;
+    </select>
 </mapper>

@@ -1,7 +1,7 @@
 package org.test.hospitalserver.mapper;
 
-import org.test.hospitalserver.entity.Components;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.test.hospitalutils.entity.Components;
 
 /**
  * <p>

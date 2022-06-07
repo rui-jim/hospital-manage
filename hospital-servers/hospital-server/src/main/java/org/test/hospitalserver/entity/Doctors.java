@@ -1,9 +1,12 @@
 package org.test.hospitalserver.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -14,6 +17,7 @@ import java.io.Serializable;
  * @author my
  * @since 2022-04-16
  */
+@Data
 public class Doctors implements Serializable {
 
     private static final long serialVersionUID=1L;
@@ -47,7 +51,8 @@ public class Doctors implements Serializable {
      */
     @TableField("d_identified")
     private String dIdentified;
-
+    
+    private String scGraduation;
     /**
      * 医生学历
      */
@@ -63,21 +68,24 @@ public class Doctors implements Serializable {
     /**
      * 入职时间
      */
-    @TableField("d_entry_time")
+    @TableField(value="d_entry_time",fill=FieldFill.INSERT)
     private Date dEntryTime;
 
     /**
      * 离职时间
      */
-    @TableField("d_resign_time")
+    @TableField(value="d_resign_time")
     private Date dResignTime;
 
+    @TableField(value="mod_time")
+    private Date modTime;
     /**
      * 挂诊费用
      */
     @TableField("d_out_register")
     private Integer dOutRegister;
-
+    
+    
     /**
      * 是否删除
      */
@@ -91,117 +99,4 @@ public class Doctors implements Serializable {
     private Integer rId;
 
 
-    public Integer getdId() {
-        return dId;
-    }
-
-    public void setdId(Integer dId) {
-        this.dId = dId;
-    }
-
-    public String getdName() {
-        return dName;
-    }
-
-    public void setdName(String dName) {
-        this.dName = dName;
-    }
-
-    public Integer getdAge() {
-        return dAge;
-    }
-
-    public void setdAge(Integer dAge) {
-        this.dAge = dAge;
-    }
-
-    public String getdAvatar() {
-        return dAvatar;
-    }
-
-    public void setdAvatar(String dAvatar) {
-        this.dAvatar = dAvatar;
-    }
-
-    public String getdIdentified() {
-        return dIdentified;
-    }
-
-    public void setdIdentified(String dIdentified) {
-        this.dIdentified = dIdentified;
-    }
-
-    public String getdDegree() {
-        return dDegree;
-    }
-
-    public void setdDegree(String dDegree) {
-        this.dDegree = dDegree;
-    }
-
-    public String getdAddress() {
-        return dAddress;
-    }
-
-    public void setdAddress(String dAddress) {
-        this.dAddress = dAddress;
-    }
-
-    public Date getdEntryTime() {
-        return dEntryTime;
-    }
-
-    public void setdEntryTime(Date dEntryTime) {
-        this.dEntryTime = dEntryTime;
-    }
-
-    public Date getdResignTime() {
-        return dResignTime;
-    }
-
-    public void setdResignTime(Date dResignTime) {
-        this.dResignTime = dResignTime;
-    }
-
-    public Integer getdOutRegister() {
-        return dOutRegister;
-    }
-
-    public void setdOutRegister(Integer dOutRegister) {
-        this.dOutRegister = dOutRegister;
-    }
-
-    public Integer getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
-    }
-
-    public Integer getrId() {
-        return rId;
-    }
-
-    public void setrId(Integer rId) {
-        this.rId = rId;
-    }
-
-    @Override
-    public String toString() {
-        return "Doctors{" +
-        "dId=" + dId +
-        ", dName=" + dName +
-        ", dAge=" + dAge +
-        ", dAvatar=" + dAvatar +
-        ", dIdentified=" + dIdentified +
-        ", dDegree=" + dDegree +
-        ", dAddress=" + dAddress +
-        ", dEntryTime=" + dEntryTime +
-        ", dResignTime=" + dResignTime +
-        ", dOutRegister=" + dOutRegister +
-        ", isDelete=" + isDelete +
-        ", rId=" + rId +
-        "}";
-    }
 }
