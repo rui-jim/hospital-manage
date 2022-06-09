@@ -12,7 +12,6 @@
         <module name="hospital-server" />
         <module name="M" />
         <module name="hospital-logging" />
-        <module name="hospital-server2" />
         <module name="hosptal-commons" />
         <module name="hospital-security" />
         <module name="hospital-config" />
