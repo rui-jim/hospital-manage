@@ -47,7 +47,6 @@ public class RolesPermissionsServiceImpl extends ServiceImpl<RolesPermissionsMap
             e.printStackTrace();
             return false;
         }
-//        rolesPermissionsService
         return judge;
     }
 
@@ -117,7 +116,6 @@ public class RolesPermissionsServiceImpl extends ServiceImpl<RolesPermissionsMap
         }
         //还原permissionsList
         permissionsList = backup;
-        log.info("addPer = {}",addPer);
         return addPer;
     }
 
@@ -148,7 +146,6 @@ public class RolesPermissionsServiceImpl extends ServiceImpl<RolesPermissionsMap
         }
         //dbList
         dbList = backup;
-        log.info("delPer = {}",delPer);
         return delPer;
     }
 

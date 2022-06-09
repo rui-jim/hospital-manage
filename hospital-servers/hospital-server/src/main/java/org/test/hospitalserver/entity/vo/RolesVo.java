@@ -13,7 +13,6 @@ import java.util.List;
 public class RolesVo {
     
     private Integer rId;
-    @TableField("r_name")
     private String rName;
 
     List<Permissions> permissionsList;

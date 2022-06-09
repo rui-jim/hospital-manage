@@ -11,11 +11,15 @@ public class DataMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setFieldValByName("dResignTime", new Date(), metaObject);
+        this.setFieldValByName("createTime", new Date(), metaObject);
         this.setFieldValByName("modTime", new Date(), metaObject);
+        this.setFieldValByName("gmtTime", new Date(), metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
+        this.setFieldValByName("gmtTime", new Date(), metaObject);
         this.setFieldValByName("modTime", new Date(), metaObject);
+        this.setFieldValByName("createTime", new Date(), metaObject);
     }
 }

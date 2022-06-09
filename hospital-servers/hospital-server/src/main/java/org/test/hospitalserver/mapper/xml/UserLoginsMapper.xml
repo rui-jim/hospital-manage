@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.test.hospitalserver.mapper.UserLoginsMapper">
+    
+    <resultMap id="userInfoMap" type="UserInfo">
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="loginTime" column="login_time"/>
+        <result property="gmtTime" column="gmt_time"/>
+        <result property="createTime" column="create_time"/>
+        <association property="role" javaType="rolesVo">
+            <result property="rName" column="r_name"/>
+        </association>
+        <association property="jobInfo" javaType="DoctorsVo">
+            <result property="dIntro" column="d_intro"/>
+            <result property="dAward" column="d_award"/>
+            <result property="scGraduation" column="d_sc_graduation"/>
+            <result property="dAge" column="d_age"/>
+            <result property="dAvatar" column="d_avatar"/>
+            <result property="dIdentified" column="d_identified"/>
+            <result property="dDegree" column="d_degree"/>
+            <result property="dAddress" column="d_address"/>
+            <result property="dOutRegister" column="d_out_register"/>
+            <association property="depts" javaType="Depts">
+                <result property="name" column="dpt_name"/>
+                <result property="address" column="dpt_address"/>
+            </association>
+        </association>
+    </resultMap>
+    
+    <select id="getUserInfo" resultMap="userInfoMap">
 
+select logins.account as account,logins.password as password,logins.name as name,logins.phone as phone,logins.email as email,
+	d.age as d_age,d.out_register as d_out_register,d.sc_graduation as d_sc_graduation,d.intro as d_intro,d.award as d_award,d.identified as d_identified,
+	d.degree as d_degree,d.address as d_address,d.salary as d_salary,d.avatar as d_avatar,
+	r.r_name as r_name ,dpt.name as dpt_name,dpt.address as dpt_address,
+	logins.login_time as login_time,logins.gmt_time as gmt_time,logins.create_time
+from user_logins logins INNER JOIN user_roles u_r ON logins.u_id = u_r.u_id  inner join roles r on r.r_id=u_r.r_id inner join doctors d on logins.u_id=d.u_id
+inner join depts dpt on dpt.id = d.dept_id 
+where logins.account = #{account}
+
+    </select>
+    
 </mapper>

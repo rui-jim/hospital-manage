@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.test.hospitalconfig.exception.LoginException;
 import org.test.hospitalsecurity.entity.CurrentUser;
 import org.test.hospitalsecurity.entity.LoginUser;
 import org.test.hospitalserver.entity.*;
@@ -42,11 +43,10 @@ public class MyUserDetailService implements UserDetailsService {
         QueryWrapper<UserLogins> userLoginsQueryWrapper = new QueryWrapper<>();
         userLoginsQueryWrapper.eq("account",username);
         UserLogins tempUser = userLoginService.getOne(userLoginsQueryWrapper);
-
-        return getLoginUser(tempUser);
-
-//        List<GrantedAuthority> select_list = AuthorityUtils.createAuthorityList("select list");
-//        return new User(username,bCryptPasswordEncoder.encode("user"), select_list);
+        if(tempUser!=null){
+            return getLoginUser(tempUser);    
+        }
+        throw new UsernameNotFoundException("所登录的账户不存在");
     }
     
     private LoginUser getLoginUser(UserLogins userLogins){
@@ -54,30 +54,14 @@ public class MyUserDetailService implements UserDetailsService {
         BeanUtils.copyProperties(userLogins,currentUser);
         currentUser.setPassword(bCryptPasswordEncoder.encode(currentUser.getPassword()));
 
-        List<Permissions> resPer=null;
-        if(userLogins.getaId()!=null){
-            resPer = getAdminsPermissions(userLogins.getaId());
-        }
-        if(userLogins.getdId()!=null){
-            
-        }
-        if(userLogins.getpId()!=null){
-            
-        }
-        log.info("======="+resPer);
+        List<Permissions> resPer = getAccountPermissions(userLogins.getUId());
         LoginUser loginUser = new LoginUser(currentUser,resPer);
         return loginUser;
     }
     
-    private List<Permissions> getAdminsPermissions(Integer aId){
-        RoPrProperties roPrPropertiesbyAId = rolesMapper.getRoPrPropertiesbyAId(aId);
-        log.info("ropro=========>"+roPrPropertiesbyAId);
+    private List<Permissions> getAccountPermissions(Integer uId){
+        RoPrProperties roPrPropertiesbyAId = rolesMapper.getRoPrPropertiesbyUId(uId);
         return roPrPropertiesbyAId.getPName();
     }
     
 }
-//    RoPrProperties(rName=管理员, pName=
-//            [
-//                    Permissions(pId=null, pNickname=null, pName=selectTest2, cId=null), 
-//                    Permissions(pId=null, pNickname=null, pName=selectTest, cId=null)],
-//        components=[Components{cId=11, path=/test2, name=test2, title=测试2, pId=null, hidden=null}, Components{cId=10, path=/test, name=test, title=测试, pId=null, hidden=null}])

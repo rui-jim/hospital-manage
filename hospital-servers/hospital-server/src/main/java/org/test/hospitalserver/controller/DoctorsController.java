@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import org.test.hospitalserver.entity.Doctors;
@@ -35,17 +36,17 @@ public class DoctorsController {
     
     @GetMapping("/list")
     @ApiOperation("展示医生列表")
+    @PreAuthorize("@sc.check('selectEmp')")
     public R doctorsList(){
         List<DoctorsVo> list = doctorsService.getList();
-        log.info("doctors list {}",list);
         return R.ok().data("doctorsList",list);
     }
     
     @PostMapping("/add")
     @ApiOperation("添加医生")
+    @PreAuthorize("@sc.check('addEmp')")
     public R addDoctors(@ApiParam(name="doctors",value="传入的实体",required = true)
                             @RequestBody DoctorsVo doctorsVo){
-        log.info("input doctors {}",doctorsVo);
         Boolean aBoolean = doctorsService.addDoctors(doctorsVo);
         return Utils.booleanForR(aBoolean);
     }

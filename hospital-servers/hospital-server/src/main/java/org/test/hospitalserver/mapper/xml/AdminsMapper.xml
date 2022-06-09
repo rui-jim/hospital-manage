@@ -19,4 +19,51 @@
         where a.a_id=u.a_id and u.r_id=r.r_id ;
     </select>
     
+    <resultMap id="resAccountVo" type="accountsVo">
+        <result property="uId" column="u_id"/>
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="loginTime" column="login_time"/>
+        <result property="createTime" column="create_time"/>
+        <result property="gmtTime" column="gmt_time"/>
+        <collection property="rolesVo" javaType="list" ofType="RolesVo">
+            <result property="rId" column="r_id"/>
+            <result property="rName" column="r_name"/>
+            <collection property="permissionsList" javaType="list" ofType="Permissions">
+                <result property="pNickname" column="p_nickname"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="getUserAccountsVo" resultMap="resAccountVo">
+        select logins.u_id as u_id,logins.account as account,logins.password as password,logins.name,
+            logins.phone as phone,logins.email as email,
+            logins.login_time as login_time,logins.gmt_time as gmt_time,logins.create_time as create_time,
+            r.r_id as r_id,r.r_name as r_name,p.p_nickname as p_nickname
+        from user_logins logins,
+            user_roles u_r,
+            roles r,
+            roles_permissions r_p,
+            permissions p
+        where logins.u_id = u_r.u_id and u_r.r_id = r.r_id
+            and r.r_id = r_p.r_id and r_p.p_id = p.p_id
+    </select>
+    
+    
+    
+    <select id="">
+        select r.r_id as r_id,r.r_name as r_name,p.p_id as p_id,p.p_nickname as P_nickname,p.p_name as p_name
+        from roles r,
+        roles_permissions r_p,
+        permissions p
+        where r_p.r_id = r.r_id and r_p.p_id = p.p_id and
+        r.r_id in (
+            select r_id
+            from user_roles	
+            where u_id = 1
+        )
+        order by p.p_id;
+    </select>
 </mapper>

@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-@Service("el")
+@Service("sc")
 public class SecurityContextUtils {
     
     public boolean check(String... permissions){

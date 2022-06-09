@@ -52,9 +52,7 @@ public class UserTokenFilter extends BasicAuthenticationFilter {
             chain.doFilter(request, response);
             return;
         }
-        log.info("UserTokenFilter ========== request.getRequestURI() == {}  ",request.getRequestURI());
         String token = request.getHeader("token");
-        log.info("token==>{}",token);
         UsernamePasswordAuthenticationToken authenticationToken = getAuthenticationToken(token);
         if(authenticationToken==null){
             log.info("请先通过登录");
@@ -72,15 +70,11 @@ public class UserTokenFilter extends BasicAuthenticationFilter {
         String name = null;
         try {
             name = tokenManage.getMemberIdByJwtToken(token);
-            log.info("Token resolve to name = {}", name);
             o = redisTemplate.opsForValue().get(name);
-            log.info("redis================>   {} ", o);
         }catch (Exception e){
-            log.info("Exception {}",e.getMessage());
-            return null;
+            e.printStackTrace();
         }
         List<String> permissions = (List<String>) o;
-        log.info("Token resolve to permissions {}",permissions);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         List<String> permissionList = new ArrayList<String>();
         for(String s:permissions){
@@ -92,7 +86,6 @@ public class UserTokenFilter extends BasicAuthenticationFilter {
         currentUser.setAccount(name);
         LoginUser loginUser = new LoginUser(currentUser);
         loginUser.setPermissionList(permissionList);
-        log.info("loginUser = {}",loginUser);
         
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(name, null, authorities);
         usernamePasswordAuthenticationToken.setDetails(loginUser);

@@ -37,7 +37,6 @@ public class DoctorsServiceImpl extends ServiceImpl<DoctorsMapper, Doctors> impl
 
     @Override
     public Boolean addDoctors(DoctorsVo doctorsVo) {
-
         int insert = this.baseMapper.insert(DoctorsVo.convertToDoctors(doctorsVo));
         if(insert==1){
             return true;

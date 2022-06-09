@@ -38,7 +38,6 @@ public class RolesServiceImpl extends ServiceImpl<RolesMapper, Roles> implements
         List<RolesVo> rolesVoNoPerList = rolesMapper.getRolesVoNoPerList();
         //去重
         distinctRolesVo(rolesVoList,rolesVoNoPerList);
-        log.info("rolesVoList {}",rolesVoList);  
         return rolesVoList;
     }
     

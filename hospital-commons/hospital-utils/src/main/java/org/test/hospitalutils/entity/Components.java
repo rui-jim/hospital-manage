@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -56,7 +57,5 @@ public class Components implements Serializable {
      */
     @TableField("hidden")
     private String hidden;
-
-
-   
+    
 }

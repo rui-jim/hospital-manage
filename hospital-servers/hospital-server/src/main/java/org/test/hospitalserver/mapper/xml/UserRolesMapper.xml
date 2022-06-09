@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.test.hospitalserver.mapper.UserRolesMapper">
 
+    
+    <insert id="insertURbyAccount">
+        insert user_roles(u_id,r_id) values(#{u_id},#{r_id});
+    </insert>
+    
 </mapper>

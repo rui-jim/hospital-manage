@@ -3,13 +3,17 @@ package org.test.hospitalserver.entity.vo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.test.hospitalserver.entity.Depts;
 import org.test.hospitalserver.entity.Doctors;
+import org.test.hospitalserver.entity.Roles;
 
 import javax.print.Doc;
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class DoctorsVo {
@@ -21,18 +25,18 @@ public class DoctorsVo {
      */
     @TableId(value = "d_id", type = IdType.AUTO)
     private Integer dId;
-
-    /**
-     * 医生名字
-     */
-    @TableField("d_name")
-    private String dName;
+    
+    private UserLoginsVo userLogin;
+    
+    private String dIntro;
+    
+    private String dAward;
     
     private String scGraduation;
     
     private Depts depts;
 //    角色==职位
-    private String rName;
+    private List<RolesVo> roles;
     /**
      * 医生年龄
      */
@@ -67,16 +71,19 @@ public class DoctorsVo {
      * 入职时间
      */
     @TableField("d_entry_time")
+    @JsonFormat(pattern="yyyy-MM-dd")//从数据库读出日期格式时，进行转换的规则
     private Date dEntryTime;
 
     /**
      * 离职时间
      */
     @TableField("d_resign_time")
+    @JsonFormat(pattern="yyyy-MM-dd")//从数据库读出日期格式时，进行转换的规则
     private Date dResignTime;
 
 
     @TableField(value="mod_time")
+    @JsonFormat(pattern="yyyy-MM-dd")//从数据库读出日期格式时，进行转换的规则
     private Date modTime;
     /**
      * 挂诊费用

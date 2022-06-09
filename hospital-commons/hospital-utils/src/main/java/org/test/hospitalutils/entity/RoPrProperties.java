@@ -9,6 +9,5 @@ public class RoPrProperties {
     
     private String rName;
     private List<Permissions> pName;
-    private List<Components> components;
     
 }

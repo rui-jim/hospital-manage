@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import org.test.hospitalserver.entity.vo.RolesVo;
@@ -35,6 +36,7 @@ public class RolesController {
 
     @ApiOperation("获取所有角色该角色的权限")
     @GetMapping("/getRolesPList")
+    @PreAuthorize("@sc.check('selectRole')")
     public R getRolesPList(){
         List<RolesVo> rolesVo = rolesService.getRolesVo();
         return R.ok().data("rolesVo",rolesVo);
@@ -42,28 +44,25 @@ public class RolesController {
 
     @ApiOperation("添加角色|未定义")
     @PostMapping("/addRole")
+    @PreAuthorize("@sc.check('addRole')")
     public R addRole(@RequestBody RolesVo rolesVo){
-        log.info("rolesVo {}",rolesVo);
         boolean b = rolesService.addRole(rolesVo);
-//        return Utils.booleanForR(b);
         return R.ok();
     }
 
     @ApiOperation("通过rName添加角色")
     @PostMapping("/roleName")
-    public R roleNmae(@RequestBody RolesVo rolesVo){
-        log.info("rolesVo {}",rolesVo);
+    @PreAuthorize("@sc.check('addRole')")
+    public R roleName(@RequestBody RolesVo rolesVo){
         boolean b = rolesService.roleNmae(rolesVo);
-//        return Utils.booleanForR(b);
         return R.ok().data("success",b);
     }
 
     @ApiOperation("通过rId删除角色")
     @PostMapping("/deleteRole")
+    @PreAuthorize("@sc.check('deleteRole')")
     public R deleteRole(@RequestBody RolesVo rolesVo){
-        log.info("rolesVo {}",rolesVo);
         boolean b = rolesService.deleteRole(rolesVo);
-//        return Utils.booleanForR(b);
         return R.ok().data("success",b);
     }
     

@@ -2,4 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.test.hospitalserver.mapper.ComponentsMapper">
 
+<!--    <resultMap id="menuList" type="menuVo">-->
+<!--        <collection property="componentsList" javaType="list" ofType="components">-->
+<!--            <result property="path" column="c1_path"/>-->
+<!--            <result property="name" column="c1_name"/>-->
+<!--            <result property="title" column="c1_title"/>-->
+<!--            <result property="component" column="c1_component"/>-->
+<!--            <result property="hidden" column="c1_hidden"/>-->
+<!--            <collection property="children" javaType="list" ofType="components">-->
+<!--                <result property="path" column="c2_path"/>-->
+<!--                <result property="name" column="c2_name"/>-->
+<!--                <result property="title" column="c2_title"/>-->
+<!--                <result property="component" column="c2_component"/>-->
+<!--                <result property="hidden" column="c2_hidden"/>-->
+<!--            </collection>-->
+<!--        </collection>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--    <select id="getMenu" resultMap="menuList" >-->
+<!--        select c1.path as c1_path,c1.name as c1_name,c1.title as c1_title,c1.component as c1_component,c1.hidden as c1_hidden,-->
+<!--            c2.path as c2_path,c2.name as c2_name,c2.title as c2_title,c2.component as c2_component,c2.hidden as c2_hidden-->
+<!--        from components c1 inner join components c2 on c1.c_id=c2.p_id-->
+<!--        where c2.c_id in(-->
+<!--            select DISTINCT c_id-->
+<!--            from permissions p inner join roles_permissions r_p on p.p_id = r_p.p_id-->
+<!--            where r_p.r_id in (-->
+<!--                select r_id-->
+<!--                from user_logins logins inner join user_roles u_r on logins.u_id=u_r.u_id-->
+<!--                where logins.account='user'-->
+<!--            )-->
+<!--        )-->
+<!--    </select>-->
+    
+<!--    <resultMap id="cidList" -->
+<!--    <select id="getCid" resultMap="cidList">-->
+<!--        -->
+<!--    </select>-->
+
+    
 </mapper>

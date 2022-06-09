@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 
@@ -27,12 +29,7 @@ public class Doctors implements Serializable {
      */
     @TableId(value = "d_id", type = IdType.AUTO)
     private Integer dId;
-
-    /**
-     * 医生名字
-     */
-    @TableField("d_name")
-    private String dName;
+    
 
     /**
      * 医生年龄
@@ -68,15 +65,21 @@ public class Doctors implements Serializable {
     /**
      * 入职时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
+    @JsonFormat(pattern="yyyy-MM-dd")//从数据库读出日期格式时，进行转换的规则
     @TableField(value="d_entry_time",fill=FieldFill.INSERT)
     private Date dEntryTime;
 
     /**
      * 离职时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
+    @JsonFormat(pattern="yyyy-MM-dd")//从数据库读出日期格式时，进行转换的规则
     @TableField(value="d_resign_time")
     private Date dResignTime;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")//页面写入数据库时格式化
+    @JsonFormat(pattern="yyyy-MM-dd")//从数据库读出日期格式时，进行转换的规则
     @TableField(value="mod_time")
     private Date modTime;
     /**

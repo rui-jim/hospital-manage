@@ -1,6 +1,7 @@
 package org.test.hospitalsecurity.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Data
 @Slf4j
+@NoArgsConstructor
 public class LoginUser implements UserDetails {
     
     CurrentUser user;

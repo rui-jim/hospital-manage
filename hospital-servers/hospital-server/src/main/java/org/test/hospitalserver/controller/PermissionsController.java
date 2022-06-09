@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.test.hospitalserver.entity.RolesPermissions;
 import org.test.hospitalserver.entity.vo.RolesVo;
@@ -31,18 +32,17 @@ public class PermissionsController {
     
     @GetMapping("/list")
     @ApiOperation("获取所有的权限")
+    @PreAuthorize("@sc.check('selectRole')")
     public R getList(){
         List<Permissions> permissions = permissionsMapper.getPermissions();
-        log.info("permissionsList {}",permissions);
         return R.ok().data("permissionsList",permissions);
     }
     
     @ApiOperation("为该职位赋予权限")
     @PostMapping("/updatePerOfRole")
+    @PreAuthorize("@sc.check('updateRole')")
     public R updatePerOfRole(@RequestBody RolesVo rolesVo){
-        log.info("updatePerOfRole RolesVo {}",rolesVo);
         Boolean success = rolesPermissionsService.updatePerOfRole(rolesVo);
-        log.info("success {}",success);
         return R.ok().data("success",success);
     }
     

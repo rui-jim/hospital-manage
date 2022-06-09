@@ -7,16 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hosptal-commons" />
-        <module name="hospital-doctors" />
+        <module name="hospital-security2" />
         <module name="hospital-utils" />
         <module name="hospital-server" />
         <module name="M" />
         <module name="hospital-logging" />
         <module name="hospital-server2" />
-        <module name="hospital-config" />
-        <module name="hospital-security2" />
+        <module name="hosptal-commons" />
         <module name="hospital-security" />
+        <module name="hospital-config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
