@@ -15,10 +15,7 @@
     
     <modules>
         <module>hospital-server</module>
-        <module>demo2</module>
-        <module>M</module>
         <module>hospital-data-provider</module>
-        <module>hospital-server2</module>
         <module>hospital-doctors</module>
     </modules>
     <name>hospital-servers</name>

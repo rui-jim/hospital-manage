@@ -18,8 +18,7 @@ import java.util.List;
  * @since 2022-04-16
  */
 public interface ComponentsMapper extends BaseMapper<Components> {
-    @Select("\n" +
-            "select path,name,title,component,hidden\n" +
+    @Select("select c_id,path,name,title,component,hidden,p_id\n" +
             "from components\n" +
             "where c_id in(\n" +
             "\tselect DISTINCT c_id\n" +
@@ -29,7 +28,8 @@ public interface ComponentsMapper extends BaseMapper<Components> {
             "\t\tfrom user_logins logins inner join user_roles u_r on logins.u_id=u_r.u_id\n" +
             "\t\twhere logins.account='user'\n" +
             "\t)\n" +
-            ")")
+            ") or p_id is null\n" +
+            "order by p_id")
     List<Components> getMenu(@Param("account") String account);
     
 

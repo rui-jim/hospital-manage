@@ -19,11 +19,11 @@ public class ModelAnonymousAspect {
     }
     
     @Around("modelAnonymous()")
-    public void modelAround(ProceedingJoinPoint pjp) throws Throwable {
+    public Object modelAround(ProceedingJoinPoint pjp) throws Throwable {
         String s = pjp.getSignature().toLongString();
         log.info("toLongString "+s);
         Object proceed = pjp.proceed();
         log.info("proceed "+proceed);
-        log.info(pjp.getTarget().toString());
+        return proceed;
     }
 }

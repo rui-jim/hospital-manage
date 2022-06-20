@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.test.hospitallogging.annotation.ModelAnonymous;
 import org.test.hospitalserver.entity.Roles;
 import org.test.hospitalserver.entity.vo.RolesVo;
 import org.test.hospitalserver.mapper.RolesMapper;
@@ -31,7 +32,8 @@ public class RolesServiceImpl extends ServiceImpl<RolesMapper, Roles> implements
     
     @Autowired
     RolesMapper rolesMapper;
-    
+
+    @ModelAnonymous()
     @Override
     public List<RolesVo> getRolesVo() {
         List<RolesVo> rolesVoList = rolesMapper.getRolesVoList();
@@ -61,12 +63,11 @@ public class RolesServiceImpl extends ServiceImpl<RolesMapper, Roles> implements
 
     @Override
     public boolean addRole(RolesVo rolesVo) {
-        
-        
-        
+
         return false;
     }
 
+    @ModelAnonymous()
     @Override
     public boolean roleNmae(RolesVo rolesVo) {
         int insert = this.baseMapper.insert(RolesVo.convertToRoles(rolesVo));

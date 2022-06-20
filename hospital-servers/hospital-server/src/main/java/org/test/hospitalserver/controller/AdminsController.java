@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import org.test.hospitallogging.annotation.ModelAnonymous;
 import org.test.hospitalserver.entity.vo.AccountsVo;
 import org.test.hospitalserver.service.AdminsService;
 import org.test.hospitalutils.utils.R;

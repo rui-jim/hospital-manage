@@ -1,11 +1,13 @@
 package org.test.hospitalserver.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.asm.Advice;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.test.hospitallogging.annotation.ModelAnonymous;
 import org.test.hospitalserver.entity.Admins;
 import org.test.hospitalserver.entity.Roles;
 import org.test.hospitalserver.entity.UserLogins;
@@ -48,12 +50,15 @@ public class AdminsServiceImpl extends ServiceImpl<AdminsMapper, Admins> impleme
     
     @Autowired
     AdminsMapper adminsMapper;
+    
+    @ModelAnonymous()
     @Override
     public List<AccountsVo> getAccountsList() {
         List<AccountsVo> userAccountsVo = adminsMapper.getUserAccountsVo();
         return userAccountsVo;
     }
 
+    @ModelAnonymous()
     @Override
     public R updateAccountsInfo(AccountsVo accountsVo) {
         try {
@@ -68,6 +73,7 @@ public class AdminsServiceImpl extends ServiceImpl<AdminsMapper, Admins> impleme
         }
     }
 
+    @ModelAnonymous()
     @Override
     public R deleteAcount(Integer uid) {
         
@@ -80,6 +86,7 @@ public class AdminsServiceImpl extends ServiceImpl<AdminsMapper, Admins> impleme
         }
     }
 
+    
     @Transactional(rollbackFor = Exception.class)
     public R deleteUserLogins(Integer uid) {
         QueryWrapper<UserLogins> userLoginsQW = new QueryWrapper<>();

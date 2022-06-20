@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.test.hospitallogging.annotation.ModelAnonymous;
 import org.test.hospitalserver.entity.Roles;
 import org.test.hospitalserver.entity.RolesPermissions;
 import org.test.hospitalserver.entity.vo.RolesVo;
@@ -33,7 +34,8 @@ public class RolesPermissionsServiceImpl extends ServiceImpl<RolesPermissionsMap
 
     @Autowired
     RolesPermissionsService rolesPermissionsService;
-    
+
+    @ModelAnonymous()
     @Override
     public Boolean updatePerOfRole(RolesVo rolesVo) {
         QueryWrapper<RolesPermissions> qw = new QueryWrapper<>();

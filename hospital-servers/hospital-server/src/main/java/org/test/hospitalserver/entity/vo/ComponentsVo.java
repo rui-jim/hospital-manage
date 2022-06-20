@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class ComponentVo {
+public class ComponentsVo {
 
     @TableId(value = "c_id", type = IdType.AUTO)
     private Integer cId;

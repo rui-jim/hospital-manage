@@ -3,6 +3,7 @@ package org.test.hospitalserver.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.test.hospitallogging.annotation.ModelAnonymous;
 import org.test.hospitalserver.entity.Doctors;
 import org.test.hospitalserver.entity.vo.DoctorsVo;
 import org.test.hospitalserver.entity.vo.RolesVo;
@@ -28,13 +29,15 @@ public class DoctorsServiceImpl extends ServiceImpl<DoctorsMapper, Doctors> impl
 
     @Autowired
     private DoctorsMapper doctorsMapper;
-    
+
+    @ModelAnonymous()
     @Override
     public List<DoctorsVo> getList() {
         List<DoctorsVo> doctorsVo = doctorsMapper.getDoctorsVo();
         return doctorsVo;
     }
 
+    @ModelAnonymous()
     @Override
     public Boolean addDoctors(DoctorsVo doctorsVo) {
         int insert = this.baseMapper.insert(DoctorsVo.convertToDoctors(doctorsVo));
