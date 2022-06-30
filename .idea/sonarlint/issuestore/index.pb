@@ -5,8 +5,6 @@ Qhospital-commons/hospital-utils/src/main/java/org/test/hospitalutils/utils/R.ja
 Shospital-commons/hospital-utils/src/main/java/org/test/hospitalutils/utils/MD5.java,2\8\2876cdc550150c51371662c2d3b5341d5e443c2d
 Y
 )hospital-commons/hospital-logging/pom.xml,0\3\03ef19ea4404622491a0a23923bf3b380b6f49e5
-X
-(hospital-commons/hospital-config/pom.xml,e\3\e30ba5b37929f367dc48ef2a8e1095861b11f4bb
 “
 chospital-servers/hospital-server/src/main/java/org/test/hospitalserver/entity/vo/PermissionsVo.java,c\d\cda5ba5f525a2b72328a8810b4265da609d5a99b
 œ

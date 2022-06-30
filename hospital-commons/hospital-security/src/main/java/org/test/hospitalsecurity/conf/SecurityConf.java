@@ -49,15 +49,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 .disable();
 
         http.authorizeRequests()
-                .antMatchers("/swagger-ui/**").permitAll()
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/*.html",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "/webSocket/**"
-                ).permitAll()
+
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new UserLoginFilter(authenticationManager(),redisTemplate,tokenManage))
@@ -92,9 +84,12 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
         web.ignoring().mvcMatchers("/api/**",
                 "/swagger-resources/**", "/webjars/**", "/v2/**",
                 "/swagger-ui/**",
-                "/swagger-ui/index.html",
-                "/test/**"
-//                "/doctors/**"
+                "/test/**",    
+                "/*.html",
+                "/**/*.html",
+                "/**/*.css",
+                "/**/*.js",
+                "/webSocket/**"
         );
     }
 

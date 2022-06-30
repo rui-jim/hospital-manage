@@ -1,11 +1,12 @@
 package org.test.hospitalconfig.conf;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.oas.annotations.EnableOpenApi;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
@@ -17,18 +18,32 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@EnableOpenApi //开启Swagger3
+@EnableSwagger2
 public class SwaggerConfig {
     
     @Bean
     public Docket docket()
     {
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(true)
+                .securityContexts(Arrays.asList(securityContext()))
                 .apiInfo(apiInfo())//配置Swagger信息
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("org.test"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .globalOperationParameters(getParameterList());
+    }
+
+    private List<Parameter> getParameterList() {
+        ParameterBuilder clientIdTicket = new ParameterBuilder();
+        List<Parameter> pars = new ArrayList<Parameter>();
+        clientIdTicket.name("token").description("token令牌")
+                .modelRef(new ModelRef("string"))
+                .parameterType("header")
+                .required(false).build(); 
+        pars.add((Parameter) clientIdTicket.build());
+        return pars;
     }
 
     private ApiInfo apiInfo() {
